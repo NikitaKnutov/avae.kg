@@ -1,3 +1,307 @@
+/* Секция бегущей строки AML */
+.aml-marquee-section {
+  padding: 30px 0;
+  background: linear-gradient(135deg, #0f2a5a 0%, #1a3a6e 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.aml-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.aml-marquee {
+  display: flex;
+  width: max-content;
+}
+
+.aml-marquee-content {
+  display: flex;
+  animation: marquee 40s linear infinite;
+  padding: 10px 0;
+}
+
+.aml-marquee-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 8px 16px;
+  margin: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.aml-marquee-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.aml-marquee-icon {
+  width: 32px;
+  height: 32px;
+  background: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+.aml-marquee-item span {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Градиентные маски по краям */
+.aml-marquee-container::before,
+.aml-marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.aml-marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #0f2a5a 0%, transparent 100%);
+}
+
+.aml-marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #0f2a5a 0%, transparent 100%);
+}
+
+/* Адаптивность для бегущей строки */
+@media (max-width: 768px) {
+  .aml-marquee-section {
+    padding: 20px 0;
+  }
+  
+  .aml-marquee-item {
+    padding: 6px 12px;
+    margin: 0 8px;
+  }
+  
+  .aml-marquee-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  
+  .aml-marquee-item span {
+    font-size: 12px;
+  }
+  
+  .aml-marquee-content {
+    animation-duration: 30s;
+  }
+  
+  .aml-marquee-container::before,
+  .aml-marquee-container::after {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aml-marquee-section {
+    padding: 15px 0;
+  }
+  
+  .aml-marquee-item {
+    padding: 5px 10px;
+    margin: 0 6px;
+    border-radius: 20px;
+  }
+  
+  .aml-marquee-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    margin-right: 6px;
+  }
+  
+  .aml-marquee-item span {
+    font-size: 11px;
+  }
+  
+  .aml-marquee-content {
+    animation-duration: 25s;
+  }
+  
+  .aml-marquee-container::before,
+  .aml-marquee-container::after {
+    width: 40px;
+  }
+}
+
+
+/* Секция бегущей строки партнеров */
+.partners-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+    padding: 20px 0;
+}
+
+.partners-marquee {
+    display: flex;
+    width: max-content;
+}
+
+.partners-marquee-content {
+    display: flex;
+    animation: partnersMarquee 30s linear infinite;
+    gap: 40px;
+    align-items: center;
+}
+
+.partner-logo-marquee {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-width: 150px;
+}
+
+.partner-logo-marquee::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0056b3, #003d7a);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.partner-logo-marquee:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 123, 255, 0.2);
+}
+
+@keyframes partnersMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Градиентные маски по краям */
+.partners-marquee-container::before,
+.partners-marquee-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.partners-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, #0a0a14 0%, transparent 100%);
+}
+
+.partners-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, #0a0a14 0%, transparent 100%);
+}
+
+
+/* Адаптивность для бегущей строки партнеров */
+@media (max-width: 768px) {
+    .partners-marquee-container {
+        margin-top: 30px;
+        padding: 15px 0;
+    }
+    
+    .partners-marquee-content {
+        gap: 30px;
+        animation-duration: 25s;
+    }
+    
+    .partner-logo-marquee {
+        padding: 15px 25px;
+        font-size: 16px;
+        min-width: 130px;
+    }
+    
+    .partners-marquee-container::before,
+    .partners-marquee-container::after {
+        width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-marquee-container {
+        margin-top: 20px;
+        padding: 10px 0;
+    }
+    
+    .partners-marquee-content {
+        gap: 20px;
+        animation-duration: 20s;
+    }
+    
+    .partner-logo-marquee {
+        padding: 12px 20px;
+        font-size: 14px;
+        min-width: 110px;
+        border-radius: 8px;
+    }
+    
+    .partners-marquee-container::before,
+    .partners-marquee-container::after {
+        width: 40px;
+    }
+}
+
+/* Убираем старую сетку партнеров */
+.partners-logos {
+    display: none;
+}
+
+
 * {
   margin: 0;
   padding: 0;
